@@ -455,8 +455,8 @@
       "name" : "PutEmail",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 896.0,
-        "y" : 1368.0
+        "x" : 1176.0,
+        "y" : 1640.0
       },
       "properties" : {
         "SMTP Socket Factory" : "javax.net.ssl.SSLSocketFactory",
@@ -754,8 +754,8 @@
       "name" : "ConvertRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 224.0,
-        "y" : 1368.0
+        "x" : 760.0,
+        "y" : 1304.0
       },
       "properties" : {
         "Include Zero Record FlowFiles" : "true",
@@ -821,8 +821,8 @@
       "name" : "UpdateAttribute",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 240.0,
-        "y" : 1616.0
+        "x" : 224.0,
+        "y" : 1640.0
       },
       "properties" : {
         "Store State" : "Do not store state",
@@ -886,8 +886,8 @@
       "name" : "QueryRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -416.0,
-        "y" : 1552.0
+        "x" : 224.0,
+        "y" : 1296.0
       },
       "properties" : {
         "dbf-default-precision" : "10",
