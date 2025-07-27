@@ -19,8 +19,8 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "eb0312ad-4958-3a0f-b406-c6c76ae75e8f",
-        "name" : "ConvertRecord",
+        "id" : "9a3764a0-022b-3dc4-8e0b-377d134ae67c",
+        "name" : "QueryRecord",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -41,6 +41,36 @@
         "type" : "PROCESSOR"
       },
       "zIndex" : 1
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "e560a127-5453-3d70-8e04-6643ae6b7432",
+        "name" : "UpdateAttribute",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "14198ae6-3bdf-3e7a-9b34-146656c6d8c7",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "filteringOnValue" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "9a3764a0-022b-3dc4-8e0b-377d134ae67c",
+        "name" : "QueryRecord",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 4
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
@@ -724,13 +754,14 @@
       "name" : "ConvertRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 232.0,
+        "x" : 224.0,
         "y" : 1368.0
       },
       "properties" : {
         "Include Zero Record FlowFiles" : "true",
         "Record Writer" : "7a6af5ec-96e3-3b69-875d-3cd0ed6558b0",
-        "Record Reader" : "b4a2857e-4cf7-3b2d-b814-307cc3136864"
+        "Record Reader" : "b4a2857e-4cf7-3b2d-b814-307cc3136864",
+        "filteringOnValue" : "SELECT * FROM FLOWFILE WHERE field like 'value'"
       },
       "propertyDescriptors" : {
         "Include Zero Record FlowFiles" : {
@@ -753,9 +784,16 @@
           "identifiesControllerService" : true,
           "name" : "Record Reader",
           "sensitive" : false
+        },
+        "filteringOnValue" : {
+          "displayName" : "filteringOnValue",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "filteringOnValue",
+          "sensitive" : false
         }
       },
-      "retriedRelationships" : [ ],
+      "retriedRelationships" : [ "failure" ],
       "retryCount" : 10,
       "runDurationMillis" : 0,
       "scheduledState" : "ENABLED",
@@ -828,6 +866,89 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "original", "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.4.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "9a3764a0-022b-3dc4-8e0b-377d134ae67c",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "QueryRecord",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -416.0,
+        "y" : 1552.0
+      },
+      "properties" : {
+        "dbf-default-precision" : "10",
+        "record-writer" : "7a6af5ec-96e3-3b69-875d-3cd0ed6558b0",
+        "record-reader" : "b4a2857e-4cf7-3b2d-b814-307cc3136864",
+        "include-zero-record-flowfiles" : "true",
+        "filteringOnValue" : "SELECT * FROM FLOWFILE WHERE field LIKE 'value'",
+        "dbf-default-scale" : "0"
+      },
+      "propertyDescriptors" : {
+        "dbf-default-precision" : {
+          "displayName" : "Default Decimal Precision",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-precision",
+          "sensitive" : false
+        },
+        "record-writer" : {
+          "displayName" : "Record Writer",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-writer",
+          "sensitive" : false
+        },
+        "record-reader" : {
+          "displayName" : "Record Reader",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "record-reader",
+          "sensitive" : false
+        },
+        "include-zero-record-flowfiles" : {
+          "displayName" : "Include Zero Record FlowFiles",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "include-zero-record-flowfiles",
+          "sensitive" : false
+        },
+        "filteringOnValue" : {
+          "displayName" : "filteringOnValue",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "filteringOnValue",
+          "sensitive" : false
+        },
+        "dbf-default-scale" : {
+          "displayName" : "Default Decimal Scale",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "dbf-default-scale",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.QueryRecord",
       "yieldDuration" : "1 sec"
     } ],
     "remoteProcessGroups" : [ ],
