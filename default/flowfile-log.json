@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1753583271725,
+    "description" : "",
+    "identifier" : "flowfile-log",
+    "lastModifiedTimestamp" : 1753583271725,
+    "name" : "flowfile-log",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
