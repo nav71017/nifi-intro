@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1753584297697,
+    "description" : "",
+    "identifier" : "funnel",
+    "lastModifiedTimestamp" : 1753584297697,
+    "name" : "funnel",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
