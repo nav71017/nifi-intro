@@ -63,8 +63,8 @@
       "identifier" : "52a5ec0d-dfaa-3dc2-b90d-31cd07e0994e",
       "name" : "MongoDBControllerService",
       "properties" : {
-        "Mongo URI" : "mongodb+srv://admin:nvnbk123@nav.fsy3p.mongodb.net/?retryWrites=true&w=majority&appName=nav",
-        "Database User" : "admin",
+        "Mongo URI" : "mongodb+srv://xxx:xxxxx@nav.fsy3p.mongodb.net/?retryWrites=true&w=majority&appName=nav",
+        "Database User" : "xxxx",
         "Write Concern" : "ACKNOWLEDGED"
       },
       "propertyDescriptors" : {
