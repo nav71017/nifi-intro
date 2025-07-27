@@ -119,8 +119,22 @@
     "inputPorts" : [ ],
     "labels" : [ ],
     "maxConcurrentTasks" : 1,
-    "name" : "JSON to MongoDB dev",
-    "outputPorts" : [ ],
+    "name" : "JSON to MongoDB",
+    "outputPorts" : [ {
+      "allowRemoteAccess" : false,
+      "componentType" : "OUTPUT_PORT",
+      "concurrentlySchedulableTaskCount" : 1,
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "610cf492-a94f-3517-8a10-376ad1449070",
+      "name" : "output",
+      "portFunction" : "STANDARD",
+      "position" : {
+        "x" : -456.0,
+        "y" : 288.0
+      },
+      "scheduledState" : "ENABLED",
+      "type" : "OUTPUT_PORT"
+    } ],
     "position" : {
       "x" : 0.0,
       "y" : 0.0
